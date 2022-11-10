@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="./cssTemplates/index.css">
+    <title>Welcome home</title>
+</head>
+
+<body>
+<h1>Home Page</h1>
+
+<ul>
+    {% for movie in results %}
+        <li>
+            {{ movie }}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

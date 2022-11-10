@@ -1,0 +1,8 @@
+bs4
+requests
+openpyxl
+pandas
+flask
+pymongo
+pytest
+flask_pymongo
