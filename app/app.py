@@ -18,13 +18,13 @@ def get_db():
     return db
 
 
-def insertData(name, year, rating, rank):
+def insertData(name, year, rating, rank, crew):
     db = get_db()
     try:
         db.movies.deleteMany({});
     except:
         pass
-    db.movies.insert_one({"name": name, "year": year, "rating": rating, "rank": rank})
+    db.movies.insert_one({"name": name, "year": year, "rating": rating, "rank": rank , "crew": crew})
 
 
 @app.route("/")
@@ -41,9 +41,9 @@ def index():
             rank = movie.find('td', class_="titleColumn").get_text(strip=True)
             year = movie.find('td', class_="titleColumn").span.text.strip('()')
             rating = movie.find('td', class_="ratingColumn imdbRating").strong.text
-            print(name, year, rating, rank)
+            crew =  movie.find('td', class_="titleColumn").a.attrs.get('title')
             insertData(name, year, rating, rank)
-           # time.sleep(1)
+            time.sleep(1)
         return "salut"
     except Exception as e:
         print(e)
